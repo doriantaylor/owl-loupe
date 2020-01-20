@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/transform"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:dct="http://purl.org/dc/terms/"
+      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+      xmlns:bibo="http://purl.org/ontology/bibo/"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:vann="http://purl.org/vocab/vann/"
+      xmlns:fresnel="http://www.w3.org/2004/09/fresnel#"
+      xmlns:loupe="https://privatealpha.com/ontology/loupe/1#"
+      xml:lang="en">
+  <head>
+    <title about="#" property="dct:title">Loupe: A Second-Generation RDF Display Vocabulary</title>
+    <base href="https://privatealpha.com/ontology/loupe/1"/>
+    <meta about="#" property="vann:preferredNamespacePrefix" content="loupe"/>
+    <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
+  </head>
+  <body>
+    <section about="#" typeof="owl:Ontology bibo:Webpage">
+      <h2>Loupe: A Second-Generation <abbr>RDF</abbr> Display Vocabulary</h2>
+      <dl>
+        <dt>Author</dt>
+        <dd><a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
+        <dt>Created</dt>
+        <dd property="dct:created" datatype="xsd:dateTime" content="2020-01-14T22:42:24Z">January 14, 2020</dd>
+        <dt>Namespace URI</dt>
+        <dd><a href="#">https://privatealpha.com/ontology/loupe/1#</a></dd>
+        <dt>Preferred Namespace Prefix</dt>
+        <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:token">loupe</dd>
+      </dl>
+      <p property="rdfs:comment dct:description">This document specifies a candidate successor to the Fresnel vocabulary, that takes into account developments in <abbr>RDFa</abbr>, <abbr>JSON-LD</abbr>, <abbr>SPARQL</abbr> 1.1 and <abbr>SHACL</abbr>.</p>
+      <p>In 2004, a group of researchers devised <a href="https://www.w3.org/2005/04/fresnel-info/">the Fresnel display vocabulary</a>. It remained largely in academic circles and was not widely implemented. In the intervening decade and a half, moreover, there have been multiple advancements in the display (RDFa, JSON-LD) and selection (SPARQL 1.1, SHACL) of RDF graphs. This vocabulary is an attempt to revisit the problem while taking these developments into account.</p>
+      <p>The fundamental problem is that a <em>document</em>, at least for our purposes, is an <em>ordered tree</em> of content, whereas <abbr>RDF</abbr> has no orientation to speak of, and therefore many questions about its display are indeterminate. In order to render an <abbr>RDF</abbr> node as a document, we need considerable direction on computing a definite sequence of properties <em>and</em> their values, which properties and values to show and which to hide, recursive descent (along with directives on when to hit the brakes), and at least roughly, <em>how</em> everything ought to be formatted.</p>
+      <p>The goal of Loupe, like Fresnel, is to define a language for specifying the parameters of a node-centric display of an <abbr>RDF</abbr> graph, and generating an abstract document tree which is amenable to further concretization in formats like <abbr>(X)HTML</abbr>+<abbr>RDFa</abbr> or <abbr>JSON-LD</abbr>. One requirement of Loupe is that the abstract document tree preserves the embedded graph structure, enabling said structure to be transmitted to final concrete data format intact. Loupe carries forward the lens/format design of Fresnel, and reuses as much of <abbr>SHACL</abbr> as is reasonable.</p>
+    </section>
+    <section>
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://www.w3.org/2005/04/fresnel-info/">Fresnel</a></li>
+        <li><a href="https://www.w3.org/TR/shacl/"><abbr title="Shapes Constraint Language">SHACL</abbr></a></li>
+        <li><a href="https://www.w3.org/TR/sparql11-query/"><abbr>SPARQL</abbr> 1.1 Query Language</a></li>
+        <li><a href="https://www.w3.org/TR/rdfa-core/"><abbr>RDFa</abbr> Core</a> and <a href="https://www.w3.org/TR/rdfa-in-html/"><abbr>HTML</abbr> embedding</a></li>
+        <li><a href="https://www.w3.org/TR/json-ld/"><abbr>JSON-LD</abbr> 1.1</a></li>
+      </ul>
+    </section>
+  </body>
+</html>
