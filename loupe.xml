@@ -12,11 +12,11 @@
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:fresnel="http://www.w3.org/2004/09/fresnel#"
-      xmlns:loupe="https://privatealpha.com/ontology/loupe/1#"
+      xmlns:loupe="https://vocab.methodandstructure.com/loupe#"
       xml:lang="en">
   <head>
     <title about="#" property="dct:title">Loupe: A Second-Generation RDF Display Vocabulary</title>
-    <base href="https://privatealpha.com/ontology/loupe/1"/>
+    <base href="https://vocab.methodandstructure.com/loupe"/>
     <meta about="#" property="vann:preferredNamespacePrefix" content="loupe"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
@@ -31,7 +31,7 @@
         <dt>Updated</dt>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2020-08-11T16:06:53Z">August 11, 2020</dd>
         <dt>Namespace URI</dt>
-        <dd><a href="#">https://privatealpha.com/ontology/loupe/1#</a></dd>
+        <dd><a href="#">https://vocab.methodandstructure.com/loupe#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
         <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:token">loupe</dd>
       </dl>
@@ -54,18 +54,18 @@
         <li>property shapes define paths and constraints, mainly for shape validation</li>
         <li>we will appropriate these for use instead as selectors (ie don't display the property's value if the shape's constraints fail to validate)</li>
         </ul>
-        <pre><![CDATA[@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
-@prefix sh:    <http://www.w3.org/ns/shacl#> .
+        <pre>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix sh:    &lt;http://www.w3.org/ns/shacl#&gt; .
 
-@prefix loupe: <https://privatealpha.com/ontology/loupe/1#> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix loupe: &lt;https://vocab.methodandstructure.com/loupe#&gt; .
+@prefix foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
 
 ex:person a loupe:Lens;
   sh:targetClass foaf:Person ;
-  # 
+  #
   loupe:show ( ex:name ex:avatar ex:email ) ;
   sh:property ex:name, ex:avatar, ex:email .
 
@@ -79,9 +79,7 @@ ex:family-name a sh:PropertyShape ;
 
 ex:name a loupe:IDUNNO ;
   sh:path [ sh:alternativePath (
-    foaf:name [ loupe:merge ( ex:given-name ex:family-name ) ] ) ] .
-
-]]></pre>
+    foaf:name [ loupe:merge ( ex:given-name ex:family-name ) ] ) ] .</pre>
         <section id="Lens" about="[loupe:Lens]" typeof="owl:Class">
           <h4 property="rdfs:label" datatype="xsd:token">Lens</h4>
           <p property="rdfs:comment">The basic element of Loupe, a specific kind of <abbr>SHACL</abbr> node shape.</p>
