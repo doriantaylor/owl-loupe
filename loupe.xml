@@ -13,6 +13,8 @@
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:fresnel="http://www.w3.org/2004/09/fresnel#"
       xmlns:loupe="https://vocab.methodandstructure.com/loupe#"
+      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# sh: http://www.w3.org/ns/shacl# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ fresnel: http://www.w3.org/2004/09/fresnel# loupe: https://vocab.methodandstructure.com/loupe#"
+      vocab="http://www.w3.org/1999/xhtml/vocab#"
       xml:lang="en">
   <head>
     <title about="#" property="dct:title">Loupe: A Second-Generation RDF Display Vocabulary</title>
@@ -20,9 +22,9 @@
     <meta about="#" property="vann:preferredNamespacePrefix" content="loupe"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
-  <body>
-    <section about="#" typeof="owl:Ontology bibo:Webpage">
-      <h2>Loupe: A Second-Generation <abbr>RDF</abbr> Display Vocabulary</h2>
+  <body typeof="bibo:Specification">
+    <div about="#" typeof="owl:Ontology">
+      <!--<h2>Loupe: A Second-Generation <abbr>RDF</abbr> Display Vocabulary</h2>-->
       <dl>
         <dt>Author</dt>
         <dd><a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
@@ -36,25 +38,26 @@
         <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:token">loupe</dd>
       </dl>
       <p property="rdfs:comment dct:description">This document specifies a candidate successor to the Fresnel vocabulary, that takes into account developments in <abbr>RDFa</abbr>, <abbr>JSON-LD</abbr>, <abbr>SPARQL</abbr> 1.1 and <abbr>SHACL</abbr>. In keeping with the theme of French names involving lenses, this candidate is called <dfn>Loupe</dfn>, which is a kind of (and indeed the generic French word for) magnifiying glass.</p>
-      <section>
-        <h3>History &amp; Rationale</h3>
-        <p>In 2004, a group of researchers devised <a href="https://www.w3.org/2005/04/fresnel-info/">the Fresnel display vocabulary</a>. It remained largely in academic circles and was not widely implemented. In the intervening decade and a half, moreover, there have been multiple advancements in the display (<abbr>RDFa</abbr>, <abbr>JSON-LD</abbr>) and selection (<abbr>SPARQL</abbr> 1.1, <abbr>SHACL</abbr>) of <abbr>RDF</abbr> graphs. This vocabulary is an attempt to revisit the problem while taking these developments into account.</p>
-        <p>The fundamental problem of displaying <abbr>RDF</abbr> is that a <em>document</em>, at least for our purposes, is an <em>ordered tree</em> of content, whereas <abbr>RDF</abbr> has no orientation to speak of, leaving many questions about how to display it unanswered. In order to render an <abbr>RDF</abbr> subject as a document, we need a number of instructions for computing a definite sequence of properties <em>and</em> their values, which properties and values to show and which to hide, and recursively descending (along with directives on when to hit the brakes), and at least roughly, <em>how</em> everything ought to be formatted.</p>
-        <p>The goal of Loupe, like Fresnel, is to define a language for specifying the parameters of a node-centric display of an <abbr>RDF</abbr> graph, and generating an abstract document tree which can be made more concrete in formats like <abbr>(X)HTML</abbr>+<abbr>RDFa</abbr> or <abbr>JSON-LD</abbr>. One requirement of Loupe is that the abstract document tree preserves the embedded graph structure, enabling said structure to be transmitted to final concrete data format intact. Loupe carries forward the lens/format design of Fresnel, and reuses as much of <abbr>SHACL</abbr> as is reasonable to do.</p>
-      </section>
-      <section>
-        <h3>Matching Nodes &amp; Enumerating Properties</h3>
-        <p>Both Fresnel and Loupe begin with the assumption that what you <em>have</em> is a set of <abbr>RDF</abbr> statements radiating off a given subject, and what you <em>want</em> are clear, consistent, and unambiguous instructions for how to render those statements as a document.</p>
-        <p>Fresnel has entities called <dfn>Lenses</dfn> that get selected through their binding to an <abbr>RDF</abbr> class or instance <abbr>URI</abbr>. Lenses say which properties to show and in what order. Fresnel also has <dfn>property descriptions</dfn> that attach additional behaviour to property selections. This functionality can be readily handled by <abbr>SHACL</abbr> node and property shapes, with only minor extensions.</p>
-        <ul>
+    </div>
+    <section>
+      <h2>History &amp; Rationale</h2>
+      <p>In 2004, a group of researchers devised <a href="https://www.w3.org/2005/04/fresnel-info/">the Fresnel display vocabulary</a>. It remained largely in academic circles and was not widely implemented. In the intervening decade and a half, moreover, there have been multiple advancements in the display (<abbr>RDFa</abbr>, <abbr>JSON-LD</abbr>) and selection (<abbr>SPARQL</abbr> 1.1, <abbr>SHACL</abbr>) of <abbr>RDF</abbr> graphs. This vocabulary is an attempt to revisit the problem while taking these developments into account.</p>
+      <p>The fundamental problem of displaying <abbr>RDF</abbr> is that a <em>document</em>, at least for our purposes, is an <em>ordered tree</em> of content, whereas <abbr>RDF</abbr> has no orientation to speak of, leaving many questions about how to display it unanswered. In order to render an <abbr>RDF</abbr> subject as a document, we need a number of instructions for computing a definite sequence of properties <em>and</em> their values, which properties and values to show and which to hide, and recursively descending (along with directives on when to hit the brakes), and at least roughly, <em>how</em> everything ought to be formatted.</p>
+      <p>The goal of Loupe, like Fresnel, is to define a language for specifying the parameters of a node-centric display of an <abbr>RDF</abbr> graph, and generating an abstract document tree which can be made more concrete in formats like <abbr>(X)HTML</abbr>+<abbr>RDFa</abbr> or <abbr>JSON-LD</abbr>. One requirement of Loupe is that the abstract document tree preserves the embedded graph structure, enabling said structure to be transmitted to final concrete data format intact. Loupe carries forward the lens/format design of Fresnel, and reuses as much of <abbr>SHACL</abbr> as is reasonable to do.</p>
+    </section>
+    <section>
+      <h2>Matching Nodes &amp; Enumerating Properties</h2>
+      <p>Both Fresnel and Loupe begin with the assumption that what you <em>have</em> is a set of <abbr>RDF</abbr> statements radiating off a given subject, and what you <em>want</em> are clear, consistent, and unambiguous instructions for how to render those statements as a document.</p>
+      <p>Fresnel has entities called <dfn>Lenses</dfn> that get selected through their binding to an <abbr>RDF</abbr> class or instance <abbr>URI</abbr>. Lenses say which properties to show and in what order. Fresnel also has <dfn>property descriptions</dfn> that attach additional behaviour to property selections. This functionality can be readily handled by <abbr>SHACL</abbr> node and property shapes, with only minor extensions.</p>
+      <ul>
         <li>okay what do we know about shapes</li>
         <li>shacl has node shapes and it has property shapes</li>
         <li>the node shapes select target nodes and encapsulate a set of property shapes</li>
         <li>note that property shapes do not correspond 1:1 to properties</li>
         <li>property shapes define paths and constraints, mainly for shape validation</li>
         <li>we will appropriate these for use instead as selectors (ie don't display the property's value if the shape's constraints fail to validate)</li>
-        </ul>
-        <pre>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+      </ul>
+      <pre>@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
@@ -80,24 +83,23 @@ ex:family-name a sh:PropertyShape ;
 ex:name a loupe:IDUNNO ;
   sh:path [ sh:alternativePath (
     foaf:name [ loupe:merge ( ex:given-name ex:family-name ) ] ) ] .</pre>
-        <section id="Lens" about="[loupe:Lens]" typeof="owl:Class">
-          <h4 property="rdfs:label" datatype="xsd:token">Lens</h4>
-          <p property="rdfs:comment">The basic element of Loupe, a specific kind of <abbr>SHACL</abbr> node shape.</p>
-          <dl>
-            <dt>Subclass of:</dt>
-            <dd><a rel="rdfs:subClassOf" href="https://www.w3.org/TR/shacl/#node-shapes" resource="sh:NodeShape">sh:NodeShape</a></dd>
-          </dl>
-          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
-        </section>
-      </section>
-      <section>
-        <h3>Sorting Properties &amp; Values</h3>
-        <p>in the absence of a specific enumeration, </p>
-      </section>
-      <section>
-        <h3>Label &amp; Description Shapes</h3>
-        <p>When a node is the subject of the resulting document or section thereof, or the target of a link, it will almost always need a label. Exactly one label needs to be definitively and consistently chosen from a set of literal values associated with a set of properties (or rather, property paths).</p>
-      </section>
+    <section id="Lens" about="[loupe:Lens]" typeof="owl:Class">
+      <h3 property="rdfs:label" datatype="xsd:token">Lens</h3>
+      <p property="rdfs:comment">The basic element of Loupe, a specific kind of <abbr>SHACL</abbr> node shape.</p>
+      <dl>
+        <dt>Subclass of:</dt>
+        <dd><a rel="rdfs:subClassOf" href="https://www.w3.org/TR/shacl/#node-shapes" resource="sh:NodeShape">sh:NodeShape</a></dd>
+      </dl>
+      <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+    </section>
+    </section>
+    <section>
+      <h2>Sorting Properties &amp; Values</h2>
+      <p>in the absence of a specific enumeration, </p>
+    </section>
+    <section>
+      <h2>Label &amp; Description Shapes</h2>
+      <p>When a node is the subject of the resulting document or section thereof, or the target of a link, it will almost always need a label. Exactly one label needs to be definitively and consistently chosen from a set of literal values associated with a set of properties (or rather, property paths).</p>
     </section>
     <section>
       <h2>References</h2>

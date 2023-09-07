@@ -21,7 +21,7 @@ readme:
 	$(PANDOC) -f html -t gfm $(ME).xml > README.md
 
 push:
-	rsync -avz --progress $(ME)* $(SITE)
+	rsync -avzc --progress $(ME)* $(SITE)
 
 clean:
 	rm -f $(ME)*.{rdf,ttl,svg,png}
