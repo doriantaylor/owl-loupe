@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="/transform"?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:owl="http://www.w3.org/2002/07/owl#"
       xmlns:sh="http://www.w3.org/ns/shacl#"
+      xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#"
       xmlns:dct="http://purl.org/dc/terms/"
       xmlns:skos="http://www.w3.org/2004/02/skos/core#"
       xmlns:bibo="http://purl.org/ontology/bibo/"
@@ -13,13 +15,14 @@
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:fresnel="http://www.w3.org/2004/09/fresnel#"
       xmlns:loupe="https://vocab.methodandstructure.com/loupe#"
-      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# sh: http://www.w3.org/ns/shacl# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ fresnel: http://www.w3.org/2004/09/fresnel# loupe: https://vocab.methodandstructure.com/loupe#"
+      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# sh: http://www.w3.org/ns/shacl# xhv: http://www.w3.org/1999/xhtml/vocab# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ fresnel: http://www.w3.org/2004/09/fresnel# loupe: https://vocab.methodandstructure.com/loupe#"
       vocab="http://www.w3.org/1999/xhtml/vocab#" xml:lang="en">
   <head>
     <title about="#" property="dct:title">Loupe: A Second-Generation RDF Display Vocabulary</title>
     <base href="https://vocab.methodandstructure.com/loupe"/>
     <meta about="#" property="vann:preferredNamespacePrefix" content="loupe"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
+    <link rel="up top contents index" href="/"/>
   </head>
   <body typeof="bibo:Specification">
     <div about="#" typeof="owl:Ontology">
